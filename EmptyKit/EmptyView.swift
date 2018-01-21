@@ -181,6 +181,7 @@ internal extension EmptyView {
         button.contentHorizontalAlignment = .center
         button.contentVerticalAlignment = .center
         button.accessibilityIdentifier = "empty set button"
+        button.layer.cornerRadius = 3
         button.addTarget(self, action: #selector(EmptyView.didTapButton), for: .touchUpInside)
         self.button = button
     }
