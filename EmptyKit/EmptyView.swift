@@ -25,7 +25,7 @@ final class EmptyView: UIView {
     var verticalOffset: CGFloat = 0
     var verticalSpace: CGFloat = 0
     var horizontalSpace: CGFloat = 0
-    var minimumButtonWidth: CGFloat? = nil
+    var minimumButtonWidth: CGFloat? = 200
     var fadeInOnDisplay: Bool = true
     
     let contentView: UIView = UIView()
@@ -182,6 +182,7 @@ internal extension EmptyView {
         button.contentVerticalAlignment = .center
         button.accessibilityIdentifier = "empty set button"
         button.layer.cornerRadius = 3
+        button.contentEdgeInsets = UIEdgeInsets(top:10,left:10,bottom:10,right:10)
         button.addTarget(self, action: #selector(EmptyView.didTapButton), for: .touchUpInside)
         self.button = button
     }
@@ -248,6 +249,9 @@ internal extension EmptyView {
                 buttonVFL = name
             }
             contentView.addConstraints(withVisualFormat: "|-(>=padding@800)-[\(buttonVFL)]-(>=padding@800)-|", metrics: metrics, views: views)
+            
+            
+            
             contentView.addEquallyRelatedConstraint(with: button, attribute: .centerX)
         }
         
@@ -262,7 +266,7 @@ internal extension EmptyView {
         }
         
         // Assign the vertical constraints to the content view
-        if (verticalFormat.characters.count > 0) {
+        if (verticalFormat.count > 0) {
             contentView.addConstraints(withVisualFormat: "V:|\(verticalFormat)|", metrics: metrics, views: views)
         }
     }

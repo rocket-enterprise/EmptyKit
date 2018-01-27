@@ -67,12 +67,17 @@ extension DetailTableViewController: EmptyDataSource {
     }
 
     func titleForEmpty(in view: UIView) -> NSAttributedString? {
-        let title = "no data"
-        let font = UIFont.systemFont(ofSize: 14)
+        let title = "Keine Aufträge gefunden \nEs befinden sich keine Aufträge in dem System. Bitte prüfen Sie nach ob bereits Dokumente vorliegen, dazu wählen Sie am Besten den Sync Button oder schauen einfach nur TV"
+        let font = UIFont.systemFont(ofSize: 22)
         let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.black, .font: font]
-        return NSAttributedString(string: title, attributes: attributes)
+        
+        let empty_string = NSMutableAttributedString(string: title, attributes: attributes)
+        empty_string.addAttribute(NSAttributedStringKey.font, value: UIFont.boldSystemFont(ofSize: 14),range: NSRange(location: 0, length: 23))
+        
+        return empty_string
     }
-
+    
+    
     func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
         let title = "click me"
         let font = UIFont.systemFont(ofSize: 17)

@@ -43,4 +43,5 @@ final class ProjectNameViewController: UITableViewController {
 }
 
 extension ProjectNameViewController: ProjectNameEmptyDataSource {}
-extension ProjectNameViewController: ProjectNameEmptyDelegate {}
+extension ProjectNameViewController: ProjectNameEmptyDelegate {
+}
